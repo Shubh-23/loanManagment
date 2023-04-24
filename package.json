@@ -1,0 +1,35 @@
+{
+  "name": "loanPro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "bookshelf": "^1.2.0",
+    "cli-color": "^2.0.1",
+    "cors": "^2.8.5",
+    "cron": "^1.8.2",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "exceljs": "^4.3.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.95.14",
+    "moment": "^2.29.1",
+    "multer": "^1.4.3",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.7.0",
+    "nodemon": "^2.0.15",
+    "path": "^0.12.7",
+    "uuidv4": "^6.2.12",
+    "web-push": "^3.4.5",
+    "xlsx": "^0.17.3"
+  }
+}
