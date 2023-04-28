@@ -14,7 +14,7 @@ app.use(router)
     //app.use('/upload',express.static(path.join(__dirname,'upload')))
 
 
-
-app.listen('8081', () => {
+ let hostName = '0.0.0.0'
+ app.listen('8081',hostName, () => {
     console.log('server is working on 8080')
 })
