@@ -1,11 +1,11 @@
 const bookshelf = require('../database/db');
 
 
-const userDetails = bookshelf.model('user_details',{
-    tableName:'user_details',
+const categories = bookshelf.model('categories',{
+    tableName:'categories',
     idAttribute:"id",
 })
 
-module.exports = userDetails
+module.exports = categories
 
 

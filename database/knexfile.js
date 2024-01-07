@@ -5,10 +5,16 @@ module.exports = {
 
   development: {
     client: 'mysql',
+    // connection: {
+    //   database: 'loan_managment',
+    //   user:     'root',
+    //   password: ''
+    // },
     connection: {
-      database: 'loan_managment',
-      user:     'root',
-      password: ''
+      host: 'srv.netraservices.com',
+      database: 'kpdigitals_admin',
+      user: 'kpdigitals',
+      password: 'India@#2023'
     },
     pool: {
       min: 2,

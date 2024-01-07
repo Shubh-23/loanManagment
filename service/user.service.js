@@ -1,22 +1,66 @@
 const userData = require('../model/user.model')
-const userDetails = require('../model/user_details.model')
+const categoriesDetails = require('../model/user_details.model')
 
 class usersData{
-    registration(params){
-        const data = {
-            'name':params.name,
-            'email':params.email,
-            'password':params.password
+
+
+    async hashPassword(password) {
+        return new Promise((resolve, reject) => {
+        bcrypt.hash(password, saltRounds, (err, hash) => {
+            if (err) {
+            reject(err);
+            } else {
+            resolve(hash);
+            }
+        });
+        });
+    }
+
+    async AddUserDetails(params) {
+        try {
+          // Hash the password using async/await
+          const hashedPassword = await this.hashPassword(params.password);
+      
+          // Update the params object with the hashed password
+          params.password = hashedPassword;
+      
+          console.log("params", params);
+      
+          const data = {
+            "id": params.id,
+            "name": params.name,
+            "email": params.email,
+            "phone": params.phone,
+            "role_id": params.role_id,
+            "password": params.password,
+            "remember_token": params.remember_token
+          };
+          const UserData = new UserTable(data);
+      
+          // Save the user data to the database using async/await
+          const savedUserData = await userData.save();
+      
+          console.log('User object with hashed password:', savedUserData);
+      
+          return savedUserData;
+        } catch (error) {
+          console.error('Error:', error);
+          throw error; // Rethrow the error or handle it accordingly
         }
-        var user = new userData(data);
-        return user.save(null).tap(function(model){
-            return model;
-        }).catch(function(err){
-            console.log("err--",err);
-            return err;
+      }
+    
+
+      AllCategories(params) {
+        return categoriesDetails.forge().query((qb) => {
+            // qb.where({ "id": params.userId })
+        }).fetchAll().then((data) => {
+            console.log(data);
+            return data
+
+        }).catch((err) => {
+            return err
         })
     }
-    
 
     login(params){
      

@@ -1,10 +1,10 @@
 const user = require('../service/user.service')
 
 class userData{
-    registration(req,res){
+    AddUserDetails(req,res){
         const params = req.body
 
-        return user.registration(params).then((data)=>{
+        return user.AddUserDetails(params).then((data)=>{
             
             if((data) != null){
                 return res.json({"ErrorCode":200,"message":"Your successfully working","Data":data})
@@ -13,6 +13,22 @@ class userData{
             }
         })
     }
+    
+    AllCategories(req,res){
+        const params = req.body
+        console.log(params)
+
+        return user.AllCategories(params).then((data)=>{
+            if((data) != null){
+                return res.json({"ErrorCode":200,"message":"Your successfully working","Data":data})
+            }else{
+                return res.json({"ErrorCode":500,"message":"something went's wroung","Data":{}})
+            }
+        }).catch(()=>{
+            return res.json({"ErrorCode":500,"message":"something went's wroung","Data":{}})
+        })
+    }
+
     
     login(req,res){
         const params = req.body

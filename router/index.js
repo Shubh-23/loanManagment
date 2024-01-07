@@ -3,11 +3,33 @@ const router = express.Router()
 const userData = require('../controller/user.controller')
 const emiDetails = require('../controller/Emi.controller')
 
+
+
+
+
+
+
+
+
+
+// route.post('/user/AddUserDetails',UserController.AddUserDetails)      //done
+
+// // {  userId:"" }
+// route.get('/getAllCategories',UserController.getUserDetails)   //done
+
+
+
+
+
+
+
 //registration
-router.post('/user/registration',userData.registration)             //Done
+router.post('/user/AddUserDetails',userData.AddUserDetails)             //Done
 
 //login
-router.post('/user/login',userData.login)                           //Done
+router.get('/getAllCategories',userData.AllCategories)  
+                         //Done
+// router.post('/getAllCategories',userData.login)                           //Done
 
 //submit All details of user
 router.post('/user/SubmitAllDetails',userData.SubmitAllDetails)     //Done
